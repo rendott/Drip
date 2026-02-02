@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useBrewStore } from '../store/useBrewStore';
-import { Play, Pause, RotateCcw } from 'lucide-react';
+import { Play, Pause, RotateCcw, Thermometer } from 'lucide-react';
 import clsx from 'clsx';
 import { BrewLogForm } from './BrewLogForm';
 
@@ -244,6 +244,13 @@ export const BrewTimer: React.FC = () => {
                     {currentStep && (
                         <div className="text-white/40 text-sm mt-2 font-mono">
                             Langkah {currentStepIndex + 1}/{steps.length}
+                        </div>
+                    )}
+                    {/* Temperature Display (New) */}
+                    {scaledRecipe?.temperature && brewStatus !== 'completed' && (
+                        <div className="flex items-center gap-1 text-red-400/80 text-xs font-mono mt-2 bg-red-400/10 px-2 py-0.5 rounded-full">
+                            <Thermometer size={12} />
+                            <span>{scaledRecipe.temperature}°C</span>
                         </div>
                     )}
                 </div>

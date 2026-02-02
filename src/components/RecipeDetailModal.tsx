@@ -51,9 +51,9 @@ export const RecipeDetailModal: React.FC<RecipeDetailModalProps> = ({ recipe, on
                             </div>
                             {/* Temperature Display */}
                             {recipe.temperature && (
-                                <div className="flex flex-col items-center gap-1">
+                                <div className="flex flex-col items-center gap-1 bg-red-500/10 p-1 rounded-lg min-w-[50px] border border-red-500/20">
                                     <Thermometer size={14} className="text-red-400" />
-                                    <span>{recipe.temperature}°C</span>
+                                    <span className="text-red-200 font-bold">{recipe.temperature}°C</span>
                                 </div>
                             )}
                             <div className="flex flex-col items-center gap-1">

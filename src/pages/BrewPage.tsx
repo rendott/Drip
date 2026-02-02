@@ -25,7 +25,7 @@ export const BrewPage: React.FC = () => {
     }
 
     return (
-        <div className="p-6 max-w-md mx-auto">
+        <div className="p-6 pb-32 max-w-md mx-auto">
             <header className="flex items-center gap-4 mb-6">
                 <button onClick={() => navigate(-1)} className="p-2 -ml-2 text-white/50 hover:text-white">
                     <ArrowLeft size={24} />

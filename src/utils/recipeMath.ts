@@ -12,6 +12,7 @@ export interface Recipe {
     method?: string; // e.g. 'V60', 'AeroPress'
     description?: string;
     difficulty?: 'Beginner' | 'Intermediate' | 'Expert';
+    temperature?: number;
 
     baseCoffeeWeight: number;
     baseWaterWeight: number;
@@ -32,6 +33,7 @@ export const scaleRecipe = (recipe: Recipe, newCoffeeWeight: number) => {
         coffee: newCoffeeWeight,
         water: Math.round(newWaterWeight),
         ratio, // e.g., 15 (1:15)
+        temperature: recipe.temperature,
         steps: scaledSteps,
     };
 };

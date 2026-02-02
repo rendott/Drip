@@ -7,6 +7,7 @@ export interface BrewState {
     scaledRecipe: {
         coffee: number;
         water: number;
+        temperature?: number;
         steps: Step[];
     } | null;
     brewStatus: 'idle' | 'brewing' | 'paused' | 'completed';
@@ -15,7 +16,7 @@ export interface BrewState {
 
     // Actions
     setActiveRecipe: (recipe: Recipe) => void;
-    setScaledRecipe: (scaled: { coffee: number; water: number; steps: Step[] }) => void;
+    setScaledRecipe: (scaled: { coffee: number; water: number; temperature?: number; steps: Step[] }) => void;
     startBrew: () => void;
     pauseBrew: () => void;
     resetBrew: () => void;
