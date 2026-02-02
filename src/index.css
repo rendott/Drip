@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --color-charcoal: #1A1A1A;
+        --color-burnt-orange: #FF8C42;
+        --color-bone: #F5F5F5;
+        --color-sage: #8FBC8F;
+    }
+
+    body {
+        @apply bg-[#1A1A1A] text-[#F5F5F5];
+    }
+}
