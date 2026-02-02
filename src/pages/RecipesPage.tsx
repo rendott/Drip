@@ -4,6 +4,7 @@ import { useBrewStore } from '../store/useBrewStore';
 import { useNavigate } from 'react-router-dom';
 import { PlayCircle } from 'lucide-react';
 import clsx from 'clsx';
+import { RecipeDetailModal } from '../components/RecipeDetailModal';
 
 export const RecipesPage: React.FC = () => {
     const [filter, setFilter] = useState<string>('All');
@@ -16,13 +17,21 @@ export const RecipesPage: React.FC = () => {
         ? CHAMPION_RECIPES
         : CHAMPION_RECIPES.filter(r => r.method === filter);
 
+    const [selectedRecipeDetail, setSelectedRecipeDetail] = useState<ChampionRecipe | null>(null);
+
     const handleSelectRecipe = (recipe: ChampionRecipe) => {
-        setActiveRecipe(recipe);
-        navigate('/brew');
+        setSelectedRecipeDetail(recipe);
+    };
+
+    const handleStartBrew = () => {
+        if (selectedRecipeDetail) {
+            setActiveRecipe(selectedRecipeDetail);
+            navigate('/brew');
+        }
     };
 
     return (
-        <div className="p-6 max-w-md mx-auto min-h-screen">
+        <div className="p-6 max-w-md mx-auto min-h-screen pb-24">
             <header className="mb-8">
                 <h1 className="text-2xl font-bold font-sans mb-1">Perpustakaan Resep</h1>
                 <p className="text-white/40 text-sm">Kumpulan resep juara dunia & komunitas.</p>
@@ -89,12 +98,21 @@ export const RecipesPage: React.FC = () => {
                             <span>{recipe.baseCoffeeWeight}g in</span>
                             <span>{recipe.baseWaterWeight}ml out</span>
                             <span className="ml-auto flex items-center gap-1 text-[#F5F5F5]">
-                                <PlayCircle size={14} /> Start
+                                <PlayCircle size={14} /> Details
                             </span>
                         </div>
                     </div>
                 ))}
             </div>
+
+            {/* Modal */}
+            {selectedRecipeDetail && (
+                <RecipeDetailModal
+                    recipe={selectedRecipeDetail}
+                    onClose={() => setSelectedRecipeDetail(null)}
+                    onStartBrew={handleStartBrew}
+                />
+            )}
         </div>
     );
 };
