@@ -72,11 +72,25 @@ export const JournalPage: React.FC = () => {
 
                         {/* Rating & Notes */}
                         <div className="bg-[#222] p-3 rounded-xl">
-                            <div className="mb-2">
+                            <div className="mb-3 flex justify-between items-start">
                                 <StarRating value={log.rating} onChange={() => { }} readOnly size={16} />
+                                {log.sensory && (
+                                    <div className="grid grid-cols-2 gap-x-4 gap-y-1">
+                                        {Object.entries(log.sensory).map(([key, val]) => (
+                                            <div key={key} className="flex items-center gap-2 text-[10px] text-white/50">
+                                                <span className="capitalize w-14">{key}</span>
+                                                <div className="flex gap-0.5">
+                                                    {[1, 2, 3, 4, 5].map(v => (
+                                                        <div key={v} className={`w-1 h-1 rounded-full ${v <= val ? 'bg-[#FF8C42]' : 'bg-white/10'}`} />
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
                             </div>
                             {log.notes && (
-                                <p className="text-sm text-white/70 italic">"{log.notes}"</p>
+                                <p className="text-sm text-white/70 italic border-t border-white/5 pt-2">"{log.notes}"</p>
                             )}
                         </div>
 

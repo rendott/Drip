@@ -12,6 +12,12 @@ export interface BrewLog {
     coffeeWeight: number;
     waterWeight: number;
     timeSeconds: number;
+    sensory?: {
+        acidity: number; // 1-5;
+        sweetness: number;
+        body: number;
+        aftertaste: number;
+    };
 }
 
 interface LogState {
