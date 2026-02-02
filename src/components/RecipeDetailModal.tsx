@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChampionRecipe } from '../data/recipes';
-import { X, PlayCircle, Clock, Droplets, Scale } from 'lucide-react';
+import { X, PlayCircle, Clock, Droplets, Scale, Thermometer } from 'lucide-react';
 
 interface RecipeDetailModalProps {
     recipe: ChampionRecipe;
@@ -49,6 +49,13 @@ export const RecipeDetailModal: React.FC<RecipeDetailModalProps> = ({ recipe, on
                                 <Droplets size={14} className="text-[#06B6D4]" />
                                 <span>{recipe.baseWaterWeight}ml</span>
                             </div>
+                            {/* Temperature Display */}
+                            {recipe.temperature && (
+                                <div className="flex flex-col items-center gap-1">
+                                    <Thermometer size={14} className="text-red-400" />
+                                    <span>{recipe.temperature}°C</span>
+                                </div>
+                            )}
                             <div className="flex flex-col items-center gap-1">
                                 <Clock size={14} className="text-[#A855F7]" />
                                 <span>~{Math.floor(recipe.steps.reduce((acc, s) => acc + s.time, 0) / 60)}m</span>

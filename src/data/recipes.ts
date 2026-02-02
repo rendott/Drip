@@ -9,6 +9,7 @@ export interface ChampionRecipe {
     difficulty: 'Beginner' | 'Intermediate' | 'Expert';
     baseCoffeeWeight: number;
     baseWaterWeight: number;
+    temperature: number; // Celsius
     flavorProfile: string[];
     about: string;
     steps: Step[];
@@ -24,8 +25,9 @@ export const CHAMPION_RECIPES: ChampionRecipe[] = [
         difficulty: 'Expert',
         baseCoffeeWeight: 15,
         baseWaterWeight: 220,
+        temperature: 92,
         flavorProfile: ['Sweet', 'Fruity', 'Aromatic'],
-        about: 'Ryan Wibawa (Indonesia) meraih juara 3 dunia dengan resep ini. Kuncinya adalah dua fase immersion dengan suhu air berbeda (86°C & 92°C) untuk kompleksitas rasa maksimal.',
+        about: 'Ryan Wibawa (Indonesia) meraih juara 3 dunia dengan resep ini. Kuncinya adalah dua fase immersion dengan suhu air berbeda (86°C & 92°C) untuk kompleksitas rasa maksimal. (Suhu rata-rata: 92°C)',
         steps: [
             { time: 3, action: 'switch_close' },
             { time: 10, action: 'pour', amount: 100 },
@@ -46,6 +48,7 @@ export const CHAMPION_RECIPES: ChampionRecipe[] = [
         difficulty: 'Expert',
         baseCoffeeWeight: 15.5,
         baseWaterWeight: 248,
+        temperature: 91,
         flavorProfile: ['Acidity', 'Sweet', 'Juicy'],
         about: 'Carlos Medina (Chile) menggunakan teknik 5 tuangan (50g x 4 + 48g) dengan interval 30 detik. Metode ini menghasilkan ekstraksi yang sangat tinggi dan merata.',
         steps: [
@@ -65,6 +68,7 @@ export const CHAMPION_RECIPES: ChampionRecipe[] = [
         difficulty: 'Intermediate',
         baseCoffeeWeight: 13,
         baseWaterWeight: 210,
+        temperature: 90,
         flavorProfile: ['Balanced', 'Smooth', 'Sweet'],
         about: 'Hiro Lesmana memenangkan kompetisi nasional dengan pendekatan "Less is More". 3 tuangan rata @70g dengan jeda 35 detik.',
         steps: [
@@ -83,6 +87,7 @@ export const CHAMPION_RECIPES: ChampionRecipe[] = [
         difficulty: 'Intermediate',
         baseCoffeeWeight: 20,
         baseWaterWeight: 300,
+        temperature: 88,
         flavorProfile: ['Sweet', 'Clean', 'Complex'],
         about: 'Tetsu Kasuya memenangkan World Brewers Cup 2016 dengan metode ini. Filosofinya sederhana: 40% air pertama menentukan keseimbangan asam/manis, dan 60% sisanya menentukan kekuatan (body) kopi.',
         steps: [
@@ -102,6 +107,7 @@ export const CHAMPION_RECIPES: ChampionRecipe[] = [
         difficulty: 'Beginner',
         baseCoffeeWeight: 15,
         baseWaterWeight: 250, // 30g bloom, then to 250g
+        temperature: 100, // Boiling
         flavorProfile: ['Balanced', 'Juicy', 'Reliable'],
         about: 'James Hoffmann, juara dunia WBC 2007, merancang metode ini untuk meminimalkan channeling dan memaksimalkan ekstraksi rata. Kuncinya adalah suhu air mendidih dan agitasi (swirl) yang lembut.',
         steps: [
@@ -120,6 +126,7 @@ export const CHAMPION_RECIPES: ChampionRecipe[] = [
         difficulty: 'Intermediate',
         baseCoffeeWeight: 18,
         baseWaterWeight: 200,
+        temperature: 85,
         flavorProfile: ['Bold', 'Full Body', 'Low Acidity'],
         about: 'Terinspirasi dari resep juara World AeroPress Championship. Menggunakan rasio yang lebih ketat dan suhu yang sedikit lebih rendah untuk menonjolkan manis alami kopi tanpa rasa pahit yang tajam.',
         steps: [

@@ -6,6 +6,7 @@ import { RecipesPage } from './pages/RecipesPage';
 import { BrewPage } from './pages/BrewPage';
 import { InventoryPage } from './pages/InventoryPage';
 import { JournalPage } from './pages/JournalPage';
+import { RecipeBuilderPage } from './pages/RecipeBuilderPage';
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                     <Route path="/recipes" element={<RecipesPage />} />
                     <Route path="/brew" element={<BrewPage />} />
                     <Route path="/inventory" element={<InventoryPage />} />
+                    <Route path="/builder" element={<RecipeBuilderPage />} />
                 </Route>
             </Routes>
         </BrowserRouter>
